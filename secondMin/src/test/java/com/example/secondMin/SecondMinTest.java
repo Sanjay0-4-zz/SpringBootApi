@@ -14,6 +14,7 @@ public class SecondMinTest {
         secondMin = new SecondMin();
         secondMin.setInput("input");
         secondMin.setOutput("output");
+        secondMin.setStatus("status");
     }
 
     @Test
@@ -24,5 +25,10 @@ public class SecondMinTest {
     @Test
     public void testGetOutput() {
         assertEquals("output",secondMin.getOutput());
+    }
+
+    @Test
+    public void testGetStatus() {
+        assertEquals("status",secondMin.getStatus());
     }
 }

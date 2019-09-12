@@ -14,13 +14,9 @@ public class SecondMin {
 
     private String input;
     private String output;
+    private String status;
 
     public SecondMin() {
-    }
-
-    public SecondMin(String input, String output) {
-        this.input = input;
-        this.output = output;
     }
 
     public String getInput() {
@@ -37,5 +33,13 @@ public class SecondMin {
 
     public void setOutput(String output) {
         this.output = output;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 }
