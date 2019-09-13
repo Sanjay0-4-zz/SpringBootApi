@@ -1,5 +1,4 @@
 package com.example.secondMin;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,7 +14,6 @@ public class SecondMinService {
 
     // array = [1 2 5 3]
     public SecondMin findSecondMin(String array) {
-
         SecondMin secondMin = new SecondMin();
         secondMin.setInput(array);
 
@@ -38,10 +36,6 @@ public class SecondMinService {
         return saveSecondMinEntry(secondMin);
     }
 
-    public List<SecondMin> getHistory() {
-        return secondMinRepository.findAll();
-    }
-
     public SecondMin validateArray(String[] num, SecondMin secondMin) {
 //check only one value in array
         if (num.length == 1) {
@@ -49,21 +43,18 @@ public class SecondMinService {
             secondMin.setStatus(FAILED);
             return saveSecondMinEntry(secondMin);
         }
-
 // check if all array elements are double
         if (!areAllDouble(num)) {
             secondMin.setOutput(NUMERIC_ERROR);
             secondMin.setStatus(FAILED);
             return saveSecondMinEntry(secondMin);
         }
-
 //check all array element are same or not
         if (areAllEqual(num)) {
             secondMin.setOutput(TWO_DIFF_NUMBER_ERROR);
             secondMin.setStatus(FAILED);
             return saveSecondMinEntry(secondMin);
         }
-
         return secondMin;
     }
 
@@ -81,10 +72,9 @@ public class SecondMinService {
                 smin = a;
             }
         }
-
         return smin;
     }
-
+//1 1 1 1
     public boolean areAllEqual(String[] s) {
         Double first = Double.parseDouble(s[0]);
         for (int i = 1; i < s.length; ++i) {
@@ -104,6 +94,10 @@ public class SecondMinService {
             }
         }
         return true;
+    }
+
+    public List<SecondMin> getHistory() {
+        return secondMinRepository.findAll();
     }
 
     public SecondMin saveSecondMinEntry(SecondMin secondMin) {
